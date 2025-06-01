@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,10 +62,21 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.backToMainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.wareHousedbDataSet = new Warehouses_System.WareHousedbDataSet();
+            this.companiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.companiesTableAdapter = new Warehouses_System.WareHousedbDataSetTableAdapters.CompaniesTableAdapter();
+            this.companyIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractEndDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wareHousedbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companiesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -117,6 +129,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "ADD";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -186,6 +199,7 @@
             this.Get.TabIndex = 15;
             this.Get.Text = "Get";
             this.Get.UseVisualStyleBackColor = true;
+            this.Get.Click += new System.EventHandler(this.Get_Click);
             // 
             // label12
             // 
@@ -237,6 +251,7 @@
             this.Update.TabIndex = 8;
             this.Update.Text = "Update";
             this.Update.UseVisualStyleBackColor = true;
+            this.Update.Click += new System.EventHandler(this.Update_Click);
             // 
             // label9
             // 
@@ -293,6 +308,7 @@
             this.button7.TabIndex = 8;
             this.button7.Text = "Remove";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label8
             // 
@@ -335,21 +351,21 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem2.Text = "add companie";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem3.Text = "Remove companie";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem4.Text = "Edit companie";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
@@ -365,18 +381,73 @@
             this.backToMainToolStripMenuItem.Text = "Back To Main";
             this.backToMainToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.companyIDDataGridViewTextBoxColumn,
+            this.companyNameDataGridViewTextBoxColumn,
+            this.contactInfoDataGridViewTextBoxColumn,
+            this.contractEndDateDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.companiesBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(354, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(434, 411);
+            this.dataGridView1.TabIndex = 18;
+            // 
+            // wareHousedbDataSet
+            // 
+            this.wareHousedbDataSet.DataSetName = "WareHousedbDataSet";
+            this.wareHousedbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // companiesBindingSource
+            // 
+            this.companiesBindingSource.DataMember = "Companies";
+            this.companiesBindingSource.DataSource = this.wareHousedbDataSet;
+            // 
+            // companiesTableAdapter
+            // 
+            this.companiesTableAdapter.ClearBeforeFill = true;
+            // 
+            // companyIDDataGridViewTextBoxColumn
+            // 
+            this.companyIDDataGridViewTextBoxColumn.DataPropertyName = "CompanyID";
+            this.companyIDDataGridViewTextBoxColumn.HeaderText = "CompanyID";
+            this.companyIDDataGridViewTextBoxColumn.Name = "companyIDDataGridViewTextBoxColumn";
+            this.companyIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // companyNameDataGridViewTextBoxColumn
+            // 
+            this.companyNameDataGridViewTextBoxColumn.DataPropertyName = "CompanyName";
+            this.companyNameDataGridViewTextBoxColumn.HeaderText = "CompanyName";
+            this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
+            // 
+            // contactInfoDataGridViewTextBoxColumn
+            // 
+            this.contactInfoDataGridViewTextBoxColumn.DataPropertyName = "ContactInfo";
+            this.contactInfoDataGridViewTextBoxColumn.HeaderText = "ContactInfo";
+            this.contactInfoDataGridViewTextBoxColumn.Name = "contactInfoDataGridViewTextBoxColumn";
+            // 
+            // contractEndDateDataGridViewTextBoxColumn
+            // 
+            this.contractEndDateDataGridViewTextBoxColumn.DataPropertyName = "ContractEndDate";
+            this.contractEndDateDataGridViewTextBoxColumn.HeaderText = "ContractEndDate";
+            this.contractEndDateDataGridViewTextBoxColumn.Name = "contractEndDateDataGridViewTextBoxColumn";
+            // 
             // CompanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.Name = "CompanieForm";
             this.Text = "CompanieForm";
-            this.Load += new System.EventHandler(this.CompanieForm_Load_1);
+            this.Load += new System.EventHandler(this.CompanieForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -385,6 +456,9 @@
             this.groupBox2.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wareHousedbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companiesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,5 +499,13 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem backToMainToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private WareHousedbDataSet wareHousedbDataSet;
+        private System.Windows.Forms.BindingSource companiesBindingSource;
+        private WareHousedbDataSetTableAdapters.CompaniesTableAdapter companiesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn companyIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn companyNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactInfoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contractEndDateDataGridViewTextBoxColumn;
     }
 }

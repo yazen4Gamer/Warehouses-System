@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,10 +67,31 @@
             this.removeItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backToMainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.wareHousedbDataSet = new Warehouses_System.WareHousedbDataSet();
+            this.managerAssignmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.managerAssignmentsTableAdapter = new Warehouses_System.WareHousedbDataSetTableAdapters.ManagerAssignmentsTableAdapter();
+            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsTableAdapter = new Warehouses_System.WareHousedbDataSetTableAdapters.ItemsTableAdapter();
+            this.itemsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.companyIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wareHousedbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerAssignmentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -133,6 +155,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "ADD";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -302,10 +325,8 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(6, 124);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.Size = new System.Drawing.Size(0, 13);
             this.label9.TabIndex = 3;
-            this.label9.Text = "Status";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label11
             // 
@@ -394,21 +415,21 @@
             // addItemsToolStripMenuItem
             // 
             this.addItemsToolStripMenuItem.Name = "addItemsToolStripMenuItem";
-            this.addItemsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addItemsToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.addItemsToolStripMenuItem.Text = "Add Items";
             this.addItemsToolStripMenuItem.Click += new System.EventHandler(this.addItemsToolStripMenuItem_Click);
             // 
             // removeItemsToolStripMenuItem
             // 
             this.removeItemsToolStripMenuItem.Name = "removeItemsToolStripMenuItem";
-            this.removeItemsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeItemsToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.removeItemsToolStripMenuItem.Text = "Remove Items";
             this.removeItemsToolStripMenuItem.Click += new System.EventHandler(this.removeItemsToolStripMenuItem_Click);
             // 
             // editItemsToolStripMenuItem
             // 
             this.editItemsToolStripMenuItem.Name = "editItemsToolStripMenuItem";
-            this.editItemsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editItemsToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.editItemsToolStripMenuItem.Text = "Edit Items";
             this.editItemsToolStripMenuItem.Click += new System.EventHandler(this.editItemsToolStripMenuItem_Click);
             // 
@@ -419,17 +440,113 @@
             this.backToMainToolStripMenuItem.Text = "Back To Main";
             this.backToMainToolStripMenuItem.Click += new System.EventHandler(this.backToMainToolStripMenuItem_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.itemIDDataGridViewTextBoxColumn,
+            this.itemNameDataGridViewTextBoxColumn,
+            this.itemTypeDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn,
+            this.warehouseIDDataGridViewTextBoxColumn,
+            this.companyIDDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.itemsBindingSource2;
+            this.dataGridView1.Location = new System.Drawing.Point(363, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(437, 411);
+            this.dataGridView1.TabIndex = 18;
+            // 
+            // wareHousedbDataSet
+            // 
+            this.wareHousedbDataSet.DataSetName = "WareHousedbDataSet";
+            this.wareHousedbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // managerAssignmentsBindingSource
+            // 
+            this.managerAssignmentsBindingSource.DataMember = "ManagerAssignments";
+            this.managerAssignmentsBindingSource.DataSource = this.wareHousedbDataSet;
+            // 
+            // managerAssignmentsTableAdapter
+            // 
+            this.managerAssignmentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // itemsBindingSource
+            // 
+            this.itemsBindingSource.DataMember = "Items";
+            this.itemsBindingSource.DataSource = this.wareHousedbDataSet;
+            // 
+            // itemsTableAdapter
+            // 
+            this.itemsTableAdapter.ClearBeforeFill = true;
+            // 
+            // itemsBindingSource1
+            // 
+            this.itemsBindingSource1.DataMember = "Items";
+            this.itemsBindingSource1.DataSource = this.wareHousedbDataSet;
+            // 
+            // itemsBindingSource2
+            // 
+            this.itemsBindingSource2.DataMember = "Items";
+            this.itemsBindingSource2.DataSource = this.wareHousedbDataSet;
+            // 
+            // itemIDDataGridViewTextBoxColumn
+            // 
+            this.itemIDDataGridViewTextBoxColumn.DataPropertyName = "ItemID";
+            this.itemIDDataGridViewTextBoxColumn.HeaderText = "ItemID";
+            this.itemIDDataGridViewTextBoxColumn.Name = "itemIDDataGridViewTextBoxColumn";
+            this.itemIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            // 
+            // itemTypeDataGridViewTextBoxColumn
+            // 
+            this.itemTypeDataGridViewTextBoxColumn.DataPropertyName = "ItemType";
+            this.itemTypeDataGridViewTextBoxColumn.HeaderText = "ItemType";
+            this.itemTypeDataGridViewTextBoxColumn.Name = "itemTypeDataGridViewTextBoxColumn";
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            // 
+            // warehouseIDDataGridViewTextBoxColumn
+            // 
+            this.warehouseIDDataGridViewTextBoxColumn.DataPropertyName = "WarehouseID";
+            this.warehouseIDDataGridViewTextBoxColumn.HeaderText = "WarehouseID";
+            this.warehouseIDDataGridViewTextBoxColumn.Name = "warehouseIDDataGridViewTextBoxColumn";
+            // 
+            // companyIDDataGridViewTextBoxColumn
+            // 
+            this.companyIDDataGridViewTextBoxColumn.DataPropertyName = "CompanyID";
+            this.companyIDDataGridViewTextBoxColumn.HeaderText = "CompanyID";
+            this.companyIDDataGridViewTextBoxColumn.Name = "companyIDDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
             // ItemFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Name = "ItemFrom";
             this.Text = "Items";
+            this.Load += new System.EventHandler(this.ItemFrom_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -438,6 +555,12 @@
             this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wareHousedbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerAssignmentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -483,5 +606,20 @@
         private System.Windows.Forms.ToolStripMenuItem removeItemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editItemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backToMainToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private WareHousedbDataSet wareHousedbDataSet;
+        private System.Windows.Forms.BindingSource managerAssignmentsBindingSource;
+        private WareHousedbDataSetTableAdapters.ManagerAssignmentsTableAdapter managerAssignmentsTableAdapter;
+        private System.Windows.Forms.BindingSource itemsBindingSource;
+        private WareHousedbDataSetTableAdapters.ItemsTableAdapter itemsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn companyIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource itemsBindingSource2;
+        private System.Windows.Forms.BindingSource itemsBindingSource1;
     }
 }

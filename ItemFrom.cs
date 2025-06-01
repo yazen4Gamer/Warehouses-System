@@ -42,16 +42,25 @@ namespace Warehouses_System
            
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void backToMainToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             MainFrom mainFrom = new MainFrom();
             mainFrom.Show();
+        }
+
+        private void ItemFrom_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'wareHousedbDataSet.Items' table. You can move, or remove it, as needed.
+            this.itemsTableAdapter.Fill(this.wareHousedbDataSet.Items);
+            // TODO: This line of code loads data into the 'wareHousedbDataSet.ManagerAssignments' table. You can move, or remove it, as needed.
+            this.managerAssignmentsTableAdapter.Fill(this.wareHousedbDataSet.ManagerAssignments);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
