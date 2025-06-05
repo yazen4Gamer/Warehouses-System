@@ -82,6 +82,10 @@
             this.warehouseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.companiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.companiesTableAdapter = new Warehouses_System.WareHousedbDataSetTableAdapters.CompaniesTableAdapter();
+            this.warehousesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.warehousesTableAdapter = new Warehouses_System.WareHousedbDataSetTableAdapters.WarehousesTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -92,6 +96,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companiesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehousesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -184,11 +190,15 @@
             // 
             // listBox2
             // 
+            this.listBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.warehousesBindingSource, "WarehouseID", true));
+            this.listBox2.DataSource = this.warehousesBindingSource;
+            this.listBox2.DisplayMember = "WarehouseID";
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(157, 68);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(173, 17);
             this.listBox2.TabIndex = 4;
+            this.listBox2.ValueMember = "WarehouseID";
             // 
             // label2
             // 
@@ -201,11 +211,15 @@
             // 
             // listBox1
             // 
+            this.listBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.companiesBindingSource, "CompanyID", true));
+            this.listBox1.DataSource = this.companiesBindingSource;
+            this.listBox1.DisplayMember = "CompanyID";
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(157, 45);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(173, 17);
             this.listBox1.TabIndex = 2;
+            this.listBox1.ValueMember = "CompanyID";
             // 
             // label1
             // 
@@ -246,6 +260,7 @@
             this.Get.TabIndex = 15;
             this.Get.Text = "Get";
             this.Get.UseVisualStyleBackColor = true;
+            this.Get.Click += new System.EventHandler(this.Get_Click);
             // 
             // label12
             // 
@@ -303,6 +318,7 @@
             this.Update.TabIndex = 8;
             this.Update.Text = "Update";
             this.Update.UseVisualStyleBackColor = true;
+            this.Update.Click += new System.EventHandler(this.Update_Click);
             // 
             // label7
             // 
@@ -374,6 +390,7 @@
             this.button4.TabIndex = 8;
             this.button4.Text = "Remove";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label10
             // 
@@ -534,6 +551,24 @@
             this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
+            // companiesBindingSource
+            // 
+            this.companiesBindingSource.DataMember = "Companies";
+            this.companiesBindingSource.DataSource = this.wareHousedbDataSet;
+            // 
+            // companiesTableAdapter
+            // 
+            this.companiesTableAdapter.ClearBeforeFill = true;
+            // 
+            // warehousesBindingSource
+            // 
+            this.warehousesBindingSource.DataMember = "Warehouses";
+            this.warehousesBindingSource.DataSource = this.wareHousedbDataSet;
+            // 
+            // warehousesTableAdapter
+            // 
+            this.warehousesTableAdapter.ClearBeforeFill = true;
+            // 
             // ItemFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -541,9 +576,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
             this.Name = "ItemFrom";
             this.Text = "Items";
             this.Load += new System.EventHandler(this.ItemFrom_Load);
@@ -561,6 +596,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companiesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehousesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -621,5 +658,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource itemsBindingSource2;
         private System.Windows.Forms.BindingSource itemsBindingSource1;
+        private System.Windows.Forms.BindingSource companiesBindingSource;
+        private WareHousedbDataSetTableAdapters.CompaniesTableAdapter companiesTableAdapter;
+        private System.Windows.Forms.BindingSource warehousesBindingSource;
+        private WareHousedbDataSetTableAdapters.WarehousesTableAdapter warehousesTableAdapter;
     }
 }
